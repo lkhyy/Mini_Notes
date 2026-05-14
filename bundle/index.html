@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>最小笔记</title>
+    <script src="/static/anna-apps/_sdk/0.1.0/index.js" defer></script>
+    <script src="./app.js" defer></script>
+    <style>
+      :root {
+        font-family: system-ui, sans-serif;
+        color: #111;
+        background: #fafafa;
+      }
+      body {
+        margin: 0;
+        padding: 12px;
+        max-width: 520px;
+      }
+      h1 {
+        font-size: 1.1rem;
+        margin: 0 0 12px;
+      }
+      section {
+        margin-bottom: 16px;
+        padding: 12px;
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+      }
+      label {
+        display: block;
+        font-size: 12px;
+        color: #555;
+        margin-bottom: 6px;
+      }
+      textarea {
+        width: 100%;
+        min-height: 64px;
+        box-sizing: border-box;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        resize: vertical;
+      }
+      button {
+        cursor: pointer;
+        padding: 6px 12px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        background: #f4f4f4;
+        font-size: 13px;
+      }
+      button.primary {
+        background: #2563eb;
+        color: #fff;
+        border-color: #1d4ed8;
+      }
+      button.danger {
+        color: #b91c1c;
+        border-color: #fecaca;
+        background: #fef2f2;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+        margin-top: 8px;
+      }
+      ul.notes {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      li.note {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 8px;
+        font-size: 13px;
+      }
+      li.note .meta {
+        font-size: 11px;
+        color: #666;
+        margin-bottom: 6px;
+      }
+      li.note .text {
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      li.note .actions {
+        margin-top: 8px;
+      }
+      #summary-out {
+        font-size: 13px;
+        white-space: pre-wrap;
+        margin-top: 8px;
+        padding: 8px;
+        background: #f8fafc;
+        border-radius: 6px;
+        min-height: 2em;
+      }
+      #banner {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>最小笔记</h1>
+    <p id="banner">在 Anna harness 中打开以使用存储与工具。</p>
+
+    <section>
+      <label for="note-input">新建笔记</label>
+      <textarea id="note-input" placeholder="输入简短文字…"></textarea>
+      <div class="row">
+        <button type="button" class="primary" id="btn-save">保存</button>
+      </div>
+    </section>
+
+    <section>
+      <label>笔记列表</label>
+      <ul class="notes" id="note-list"></ul>
+    </section>
+
+    <section>
+      <label>笔记总结</label>
+      <div class="row">
+        <button type="button" class="primary" id="btn-summarize">Summarize</button>
+      </div>
+      <div id="summary-out"></div>
+    </section>
+  </body>
+</html>
